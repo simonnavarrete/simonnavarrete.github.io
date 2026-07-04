@@ -6,7 +6,7 @@
   --bg:#1f1e1d; --ink:#f0eee6; --hover:#b0aea5; --line:#3a3833;
 }
 @font-face{
-  font-family:"Newsreader"; src:url("/assets/newsreader.woff2") format("woff2");
+  font-family:"Newsreader"; src:url("/assets/fonts/newsreader.woff2") format("woff2");
   font-weight:400 600; font-display:swap;
 }
 *{box-sizing:border-box;}
