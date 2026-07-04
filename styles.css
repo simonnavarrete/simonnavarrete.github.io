@@ -1,6 +1,6 @@
 :root{                       /* light — the default */
   --bg:#f0eee6; --ink:#1f1e1d; --hover:#5e5d59;
-  --line:#dcd8cc; --maxw:640px;
+  --line:#dcd8cc; --maxw:760px;
 }
 [data-theme="dark"]{
   --bg:#1f1e1d; --ink:#f0eee6; --hover:#b0aea5; --line:#3a3833;
@@ -28,11 +28,21 @@ body{margin:0; background:var(--bg); color:var(--ink);
 [data-theme="dark"] .toggle::after{left:18px;}                         /* knob: right = dark */
 a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
 a:hover{color:var(--hover);}
-img.portrait{width:180px; aspect-ratio:4/5; object-fit:cover;
-  border-radius:2px; float:left; margin:0 22px 10px 0;} /* portrait, NOT circular */
-@media (max-width:600px){
-  .nav{flex-direction:column; gap:12px; align-items:flex-start;}
-  img.portrait{width:140px; float:none; display:block; margin:0 0 16px;}
+img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
+  border-radius:2px; flex:none;}                         /* portrait, NOT circular */
+.about{display:flex; gap:32px; align-items:flex-start;}  /* image left, text right */
+.about-text{flex:1;}
+.about-text>:first-child{margin-top:0;}                  /* align text top with image */
+@media (max-width:700px){                                /* mobile */
+  .about{flex-direction:column; gap:16px;}               /* stack image + text, center image */
+  img.portrait{width:100%; max-width:280px; align-self:center;}
+  .nav{position:sticky; top:0; z-index:10;               /* stays put while scrolling */
+    background:var(--bg);                                 /* opaque so content can't show through */
+    padding:18px 24px 14px; margin-bottom:32px;           /* compact sticky bar */
+    font-size:14px;}                                      /* shrink so name + links + toggle fit one row */
+  .wordmark{white-space:nowrap;}                          /* name never wraps to two lines */
+  .nav nav a{margin-left:10px; padding:6px 0;}
+  .nav-right{gap:8px;}
 }
 @media (prefers-reduced-motion:no-preference){
   body{transition:background .2s ease, color .2s ease;}

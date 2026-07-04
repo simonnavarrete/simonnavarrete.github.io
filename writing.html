@@ -33,20 +33,6 @@
     <p>I write occasionally on <a href="https://tarrasquemag.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>.</p>
   </main>
 
-  <script>
-    var btn = document.getElementById('theme');
-    var sync = function(){
-      btn.setAttribute('aria-pressed',
-        document.documentElement.getAttribute('data-theme') === 'dark');
-    };
-    sync();
-    btn.addEventListener('click', function(){
-      var root = document.documentElement;
-      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);   // persists across tab-close + hard refresh
-      sync();
-    });
-  </script>
+  <script src="/site.js"></script>
 </body>
 </html>
