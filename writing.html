@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simon Navarrete — Writing</title>
+  <meta name="description" content="Writing by Simon Navarrete.">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/s-favicon-32.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="/assets/s-webclip-256.png">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme')
+        || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="wordmark" href="/">Simon Navarrete</a>
+    <div class="nav-right">
+      <nav>
+        <a href="/">About</a>
+        <a href="/work.html">Work</a>
+        <a href="/writing.html" aria-current="page">Writing</a>
+      </nav>
+      <button id="theme" class="toggle" aria-label="Toggle dark mode" aria-pressed="false"></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Coming-soon default (Q-1). When the Substack URL arrives, replace the line below with:
+         <p>I write occasionally on <a href="https://SUBSTACK-URL" target="_blank" rel="noopener noreferrer">Substack</a>.</p> -->
+    <p>Writing — coming soon.</p>
+  </main>
+
+  <script>
+    var btn = document.getElementById('theme');
+    var sync = function(){
+      btn.setAttribute('aria-pressed',
+        document.documentElement.getAttribute('data-theme') === 'dark');
+    };
+    sync();
+    btn.addEventListener('click', function(){
+      var root = document.documentElement;
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);   // persists across tab-close + hard refresh
+      sync();
+    });
+  </script>
+</body>
+</html>
