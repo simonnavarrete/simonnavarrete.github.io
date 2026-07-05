@@ -28,6 +28,7 @@ body{margin:0; background:var(--bg); color:var(--ink);
 [data-theme="dark"] .toggle::after{left:18px;}                         /* knob: right = dark */
 a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
 a:hover{color:var(--hover);}
+main p{text-align:justify; -webkit-hyphens:auto; hyphens:auto;} /* justified, hyphenated so lines don't gap */
 img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
   border-radius:2px; flex:none;}                         /* portrait, NOT circular */
 .about{display:flex; gap:32px; align-items:flex-start;}  /* image left, text right */
