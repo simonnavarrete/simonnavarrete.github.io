@@ -56,5 +56,9 @@ img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
   [data-theme="dark"] .toggle-knob{transform:translateX(20px);}
 }
 @media (prefers-reduced-motion:no-preference){
-  body{transition:background .2s ease, color .2s ease;}
+  body{transition:background-color .2s linear, color .2s linear;}
+  .nav{transition:background-color .2s ease, border-color .2s ease;}
+  .wordmark,.nav nav a,main a{transition:color .2s linear;}
+  .toggle-track{transition:background-color .2s ease, border-color .2s ease;}
+  .toggle-knob{transition:background-color .2s ease, transform .2s ease;}
 }
