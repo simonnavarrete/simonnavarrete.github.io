@@ -31,7 +31,7 @@ a:hover{color:var(--hover);}
 img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
   border-radius:2px; flex:none;}
 .about{display:flex; gap:32px; align-items:flex-start;}  /* image left, text right */
-.about-text{flex:1;}
+.about-text{flex:1; word-spacing:.035em;}
 .about-text>:first-child{margin-top:0;}                  /* align text top with image */
 @media (max-width:700px){                                /* mobile */
   .about{flex-direction:column; gap:16px;}               /* stack image + text, center image */
