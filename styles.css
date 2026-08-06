@@ -17,7 +17,7 @@ body{margin:0; background:var(--bg); color:var(--ink);
 .nav{display:flex; justify-content:space-between; align-items:baseline;
   padding:46px 24px 18px; border-bottom:1px solid var(--line); margin-bottom:40px;}
 .nav-right{display:flex; align-items:center; gap:18px;}
-.wordmark{font-weight:600; text-decoration:none; color:var(--ink);}
+.wordmark{font-weight:600; font-size:1.3em; text-decoration:none; color:var(--ink);}
 .nav nav a{color:var(--ink); opacity:.6; text-decoration:none; margin-left:18px;
   display:inline-block; padding:8px 0;}                 /* padding = tap target */
 .nav nav a[aria-current="page"]{opacity:1; font-weight:600;}
@@ -28,9 +28,8 @@ body{margin:0; background:var(--bg); color:var(--ink);
 [data-theme="dark"] .toggle::after{left:18px;}                         /* knob: right = dark */
 a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
 a:hover{color:var(--hover);}
-main p{text-align:justify; -webkit-hyphens:auto; hyphens:auto;} /* justified, hyphenated so lines don't gap */
 img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
-  border-radius:2px; flex:none;}                         /* portrait, NOT circular */
+  border-radius:2px; flex:none;}
 .about{display:flex; gap:32px; align-items:flex-start;}  /* image left, text right */
 .about-text{flex:1;}
 .about-text>:first-child{margin-top:0;}                  /* align text top with image */
@@ -40,8 +39,8 @@ img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
   .nav{position:sticky; top:0; z-index:10;               /* stays put while scrolling */
     background:var(--bg);                                 /* opaque so content can't show through */
     padding:18px 24px 14px; margin-bottom:32px;           /* compact sticky bar */
-    font-size:14px;}                                      /* shrink so name + links + toggle fit one row */
-  .wordmark{white-space:nowrap;}                          /* name never wraps to two lines */
+    font-size:clamp(14px, 3.5vw, 20px);}                  /* fluid: fits one row at 375px, grows to body size on wider phones */
+  .wordmark{white-space:nowrap; font-size:clamp(14px, 3.7vw, 26px);} /* name never wraps; fluid up to desktop wordmark size */
   .nav nav a{margin-left:10px; padding:6px 0;}
   .nav-right{gap:8px;}
 }
