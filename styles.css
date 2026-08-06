@@ -21,11 +21,16 @@ body{margin:0; background:var(--bg); color:var(--ink);
 .nav nav a{color:var(--ink); opacity:.6; text-decoration:none; margin-left:18px;
   display:inline-block; padding:8px 0;}                 /* padding = tap target */
 .nav nav a[aria-current="page"]{opacity:1; font-weight:600;}
-.toggle{width:34px; height:18px; border:1px solid var(--ink); border-radius:999px;
-  background:none; padding:0; position:relative; cursor:pointer;}      /* unmarked pill */
-.toggle::after{content:""; position:absolute; top:2px; left:2px; width:12px; height:12px;
-  border-radius:50%; background:var(--ink); transition:left .18s ease;}/* knob: left = light */
-[data-theme="dark"] .toggle::after{left:18px;}                         /* knob: right = dark */
+theme-toggle{display:contents;}
+.toggle{width:34px; height:18px; border:0; background:none; padding:0;
+  display:grid; place-items:center; position:relative; cursor:pointer;}
+.toggle-track{display:block; width:34px; height:18px; border:1px solid var(--ink);
+  border-radius:999px; background:var(--bg); position:relative;}
+.toggle-knob{display:block; position:absolute; left:2px; bottom:2px; width:12px; height:12px;
+  border-radius:50%; background:var(--ink); transform:translateX(0);}
+.toggle:focus{outline:0;}
+[data-theme="dark"] .toggle-track{background:var(--ink);}
+[data-theme="dark"] .toggle-knob{background:var(--bg); transform:translateX(16px);}
 a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
 a:hover{color:var(--hover);}
 img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
@@ -36,13 +41,19 @@ img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
 @media (max-width:700px){                                /* mobile */
   .about{flex-direction:column; gap:16px;}               /* stack image + text, center image */
   img.portrait{width:100%; max-width:280px; align-self:center;}
-  .nav{position:sticky; top:0; z-index:10;               /* stays put while scrolling */
-    background:var(--bg);                                 /* opaque so content can't show through */
-    padding:18px 24px 14px; margin-bottom:32px;           /* compact sticky bar */
-    font-size:clamp(14px, 3.5vw, 20px);}                  /* fluid: fits one row at 375px, grows to body size on wider phones */
-  .wordmark{white-space:nowrap; font-size:clamp(14px, 3.7vw, 26px);} /* name never wraps; fluid up to desktop wordmark size */
-  .nav nav a{margin-left:10px; padding:6px 0;}
-  .nav-right{gap:8px;}
+  main{padding:0 20px;}
+  .nav{display:block; position:sticky; top:0; z-index:10;
+    background:var(--bg); padding:18px 20px 10px; margin-bottom:32px;}
+  .wordmark{display:flex; align-items:center; min-height:44px; padding-right:60px;
+    white-space:nowrap; font-size:clamp(30px, 8.2vw, 32px); line-height:1.1;}
+  .nav-right{display:block;}
+  .nav nav{display:flex; align-items:center; gap:28px; min-height:44px; margin-top:4px;}
+  .nav nav a{margin-left:0; padding:10px 0; font-size:19px; line-height:24px;}
+  .toggle{position:absolute; top:18px; right:18px; width:44px; height:44px;
+    border:0; background:none;}
+  .toggle-track{width:40px; height:20px;}
+  .toggle-knob{width:14px; height:14px;}
+  [data-theme="dark"] .toggle-knob{transform:translateX(20px);}
 }
 @media (prefers-reduced-motion:no-preference){
   body{transition:background .2s ease, color .2s ease;}
