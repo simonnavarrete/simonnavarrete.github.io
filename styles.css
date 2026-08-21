@@ -32,7 +32,7 @@ theme-toggle{display:contents;}
 [data-theme="dark"] .toggle-track{background:var(--ink);}
 [data-theme="dark"] .toggle-knob{background:var(--bg); transform:translateX(16px);}
 a{color:var(--ink); text-decoration:underline; text-underline-offset:2px;}
-a:hover{color:var(--hover);}
+a:not(.wordmark):hover{color:var(--hover);}
 img.portrait{width:320px; aspect-ratio:4/5; object-fit:cover;
   border-radius:2px; flex:none;}
 .about{display:flex; gap:32px; align-items:flex-start;}  /* image left, text right */
